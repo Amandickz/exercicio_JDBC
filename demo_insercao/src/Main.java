@@ -22,18 +22,28 @@ public class Main {
                     "INSERT INTO seller" +
                             "(Name, Email, BirthDate, BaseSalary, DepartmentId)" +
                             "VALUES" +
-                            "(?, ?, ?, ?, ?)"
+                            "(?, ?, ?, ?, ?)",
+                            Statement.RETURN_GENERATED_KEYS
             );
 
-            pstmt.setString(1, "Amanda Spader");
-            pstmt.setString(2, "amandickz@gmail.com");
-            pstmt.setDate(3, new java.sql.Date(sdf.parse("18/08/1995").getTime()));
+            pstmt.setString(1, "Diego Spader");
+            pstmt.setString(2, "spader.diego@gmail.com");
+            pstmt.setDate(3, new java.sql.Date(sdf.parse("19/09/1988").getTime()));
             pstmt.setDouble(4, 3000.00);
             pstmt.setInt(5, 4);
 
             int rollsAffected = pstmt.executeUpdate();
 
-            System.out.println("Done! Rolls Affected: " + rollsAffected);
+            if(rollsAffected > 0){
+                ResultSet rs = pstmt.getGeneratedKeys();
+                while (rs.next()){
+                    int id = rs.getInt(1);
+                    System.out.println("Done! ID = " + id);
+                }
+            } else {
+                System.out.println("No rown affected!");
+            }
+
         } catch (SQLException e){
             e.printStackTrace();
         } catch (ParseException e){
