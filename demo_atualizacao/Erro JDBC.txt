@@ -1,0 +1,34 @@
+Baixar o MySQL Connector
+
+Extrair o arquivo em uma nova pasta no endereço:
+C:\java-libs\jdbc-connectors
+
+Caso esteja dando erro: No suitable driver found for jdbc:mysql://localhost:3306/bancoteste verificar se foi
+feito os passos abaixo:
+
+No IntelliJ, ir em:
+
+Project Structure > Modules > Dependencies
+Clicar em + e selecionar a pasta criada com o .zip, e selecionar o arquivo .jar
+
+Depois disso, vá na aba Libraries > + > Java > Seleciona o arquivo .jar e clicar em Ok
+
+
+Fazer um programa para testar a conexão com o banco.
+
+
+----------------------------------------------------
+
+
+Caso esteja dando erro de conexão no MySQL Workbench ao clicar em Server Status:
+
+Ir em Painel de Controle > Relógio e Região > Região.
+
+Ir na Aba Adminsitrativo > Alterar localidade do sistema > verificar se o checkbox "Beta: Usar Unicode UTF-8 para suporte de linguagem mundial" está ativa. Se não estiver, clicar para ativar, dar ok e reinicar o computador.
+
+
+----------------------------------------------------
+
+Caso continue dando erro de conexão, verifique se o Serviço do MySQL está executando.
+
+CTRL + ALT + DEL > Gerenciador de Tarefas > Serviços > MySQL80
